@@ -4,11 +4,12 @@ import config from '../connfig/config.js';
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
+        type: 'OAuth2',
         clientId: config.GOOGLE_CLIENT_ID,
         clientSecret: config.GOOGLE_CLIENT_SECRET,
         refreshToken: config.GOOGLE_REFRESH_TOKEN,
         user: config.GOOGLE_USER
-    }
+    }   
 });
 
 transporter.verify((error, success) => {
